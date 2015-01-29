@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
 import logging
 
 import os
@@ -9,11 +7,8 @@ import shutil
 import glob
 import os
 
-
-
 import base64
 import xmlrpclib
-
 
 import time
 import datetime
@@ -21,18 +16,16 @@ from dateutil import tz
 
 import pytz
 
-
 from dateutil import parser
 
-
 from openerp import SUPERUSER_ID
-from openerp.osv import osv, fields
+from openerp.osv import orm, fields
 from openerp.tools.translate import _
 from openerp.tools import html2text
 from openerp import netsvc
 import openerp.tools as tools
 
-from openerp import models, api
+# from openerp import models, api
 
 _logger = logging.getLogger(__name__) # Need for message in console.
 
@@ -81,7 +74,7 @@ def get_server_time(tz_server):
 
 
 
-class db_dir_path(osv.osv):
+class db_dir_path(orm.Model):
 
     _name = 'db.dir.path'
     _columns = {
@@ -101,11 +94,11 @@ class db_dir_path(osv.osv):
 
         context = dict(context or {})
 
-        db_dir_path_obj = self.pool.get('db.dir.path')
+        db_dir_path_obj = self.pool['db.dir.path']
         db_dir_path_data = db_dir_path_obj.browse(cr, uid, ids, context=context)
 
-        dir_name = db_dir_path_data.name
-        dir_path = db_dir_path_data.path
+        dir_name = db_dir_path_data[0].name
+        dir_path = db_dir_path_data[0].path
 
 
         d = os.path.join(dir_path)
@@ -119,7 +112,7 @@ class db_dir_path(osv.osv):
 
 
 
-class db_list(osv.osv):
+class db_list(orm.Model):
     _name = 'db.list'
     _columns = {
                     'name' : fields.char('Description', size=100, required='True'),
@@ -135,21 +128,21 @@ class db_list(osv.osv):
 
 
 
-class db_backup_source(osv.osv):
+class db_backup_source(orm.Model):
     _name = 'db.backup.source'
 
 
-    @api.model
-    def _tz_get(self):
+#    @api.model
+    def _tz_get(self, cr, uid, context=None):
     # put POSIX 'Etc/*' entries at the end to avoid confusing users - see bug 1086728
         return [(tz,tz) for tz in sorted(pytz.all_timezones, key=lambda tz: tz if not tz.startswith('Etc/') else '_')]
 
-    @api.multi
-    def _get_tz_offset(self, name, args):
-        return dict(
-            (p.id, datetime.datetime.now(pytz.timezone(p.tz or 'GMT')).strftime('%z'))
-            for p in self)
-
+#    @api.multi
+    def _get_tz_offset(self, cr, uid, ids, name, args, context=None):
+        result = dict.fromkeys(ids, False)
+        for obj in self.browse(cr, uid, ids, context=context):
+            result[obj.id] = datetime.datetime.now(pytz.timezone(obj.tz or 'GMT')).strftime('%z')
+        return result
 
 
     _columns = {
@@ -175,16 +168,14 @@ class db_backup_source(osv.osv):
 
 
     def test_dbs_connection(self, cr, uid, ids, context=None):
-
-        res = {}
-
+#        res = {}
         context = dict(context or {})
 
-        db_source_obj = self.pool.get('db.backup.source')
+        db_source_obj = self.pool['db.backup.source']
         db_source_data = db_source_obj.browse(cr, uid, ids, context=context)
 
-        db_host = db_source_data.host
-        db_port = db_source_data.port
+        db_host = db_source_data[0].host
+        db_port = db_source_data[0].port
 
         db_lists = get_db_list(db_host, db_port)
         db_list_obj = self.pool.get('db.list')
@@ -199,7 +190,7 @@ class db_backup_source(osv.osv):
 
                     values = {
                         'name': db_name,
-                        'db_backup_source_id': ids[0],
+                        'db_backup_source_id': ids[0],    #war ids[0]
                     }
                     db_list_obj.create(cr, SUPERUSER_ID, values)
 
@@ -211,10 +202,7 @@ class db_backup_source(osv.osv):
             db_write = db_source_obj.write(cr, uid, ids, {'dbs_state': 'blocked', }, context=context)
             return self.pool.get('warning').error(cr, uid, title='Check Connection', message="Wrong (Host or port) on http://%s:%s "%( db_host, db_port))
 
-class db_backup_action(osv.osv):
-
-
-
+class db_backup_action(orm.Model):
     _name = "db.backup.action"
     _description = "Databse Actions Manager"
 
@@ -274,7 +262,7 @@ class db_backup_action(osv.osv):
 
         context = dict(context or {})
 
-        backup_action_obj = self.pool.get('db.backup.action')
+        backup_action_obj = self.pool['db.backup.action']
         backup_action_search = backup_action_obj.search(cr, uid, [('active_backup', '=', True)], context=context, count=False)
 
         for backup_action in backup_action_search:
@@ -336,7 +324,7 @@ class db_backup_action(osv.osv):
 
         context = dict(context or {})
 
-        backup_action_obj = self.pool.get('db.backup.action')
+        backup_action_obj = self.pool['db.backup.action']
         backup_action_search = backup_action_obj.search(cr, uid, [('active_backup', '=', True)], context=context, count=False)
 
         for backup_action in backup_action_search:

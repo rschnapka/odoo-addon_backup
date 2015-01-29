@@ -52,7 +52,7 @@ ${object.date_deadline or ''}<br />
             <field name="model">db.backup.source</field>
             <field name="arch" type="xml">
 
-                <form string="BackUP Configure">
+                <form string="BackUP Configure" version="7.0">
                   <sheet>
                       <div class="oe_right">
                             <field name="dbs_state" class="oe_inline" widget="kanban_state_selection" readonly="1"/>
@@ -83,7 +83,7 @@ ${object.date_deadline or ''}<br />
                                 <group >
                                     <group>
                                         <field name="name" />
-                                        <field name="db_list_id" completion="1" widget="selection" string="DB name" domain="[('db_backup_source_id','=', parent.id)]"/>
+                                        <field name="db_list_id" completion="1" widget="selection" string="DB name"/>
                                         <field name="db_dir_path_id" completion="1" widget="selection" string="Dir Path"/>
 
                                     </group>
@@ -143,7 +143,7 @@ ${object.date_deadline or ''}<br />
             <field name="model">db.dir.path</field>
             <field name="arch" type="xml">
 
-                <form string="BackUP Directory Path Configure">
+                <form string="BackUP Directory Path Configure" version="7.0">
                   <sheet>
                     <group col="2">
 					    <field name="name" />
