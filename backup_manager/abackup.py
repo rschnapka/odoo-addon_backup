@@ -108,7 +108,7 @@ class db_dir_path(orm.Model):
         else:
             os.chmod(d, 0700)
 
-        return self.pool.get('warning').info(cr, uid, title='Check Availabel', message="Check path for: %s  - %s, check path: %s "%( dir_name, dir_path, d))
+        return self.pool.get('warning').info(cr, uid, title='Check Available', message="Check path for: %s  - %s, check path: %s "%( dir_name, dir_path, d))
 
 
 
@@ -178,7 +178,7 @@ class db_backup_source(orm.Model):
         db_port = db_source_data[0].port
 
         db_lists = get_db_list(db_host, db_port)
-        db_list_obj = self.pool.get('db.list')
+        db_list_obj = self.pool['db.list']
 
         if db_lists:
 
@@ -190,7 +190,7 @@ class db_backup_source(orm.Model):
 
                     values = {
                         'name': db_name,
-                        'db_backup_source_id': ids[0],    #war ids[0]
+                        'db_backup_source_id': ids[0],
                     }
                     db_list_obj.create(cr, SUPERUSER_ID, values)
 
@@ -285,7 +285,7 @@ class db_backup_action(orm.Model):
 
             backup_filename = self._backup_rpc(self, cr, host, port, db_name, passwd, dir_path, tz_server, tz_offset)
 
-            _logger.warning("BackUP filename: %s", backup_filename)
+            _logger.warning(_("BackUP filename: %s"), backup_filename)
 
 
     def _housekeeping(self, cr, uid, dir_path=None, days_save=None, db_name=None, tz_server=None, tz_offset=None, context=None):
@@ -310,13 +310,13 @@ class db_backup_action(orm.Model):
             dout = doutm.strftime('%Y-%m-%d %H:%M:%S')
             dout = datetime.datetime.strptime(dout, '%Y-%m-%d %H:%M:%S')
 
-            _logger.warning("BackUP filename Check: %s - %s - %s", fname, dout, now)
+            _logger.warning(_("BackUP filename Check: %s - %s - %s"), fname, dout, now)
 
             if (dnow - dout).days > days_save:
 
                 os.unlink(fname) #delete
 
-                _logger.warning("Delete: %s - %s - %s", fname, dout, now)
+                _logger.warning(_("Delete: %s - %s - %s"), fname, dout, now)
 
 
 

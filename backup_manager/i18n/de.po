@@ -1,0 +1,282 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* backup_manager
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-30 16:57+0000\n"
+"PO-Revision-Date: 2015-01-30 21:49+0100\n"
+"Last-Translator: Rudolf Schnapka <rs@techno-flex.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: backup_manager
+#: help:db.backup.action,sequence:0
+msgid "When (smaller number = higher priority)"
+msgstr "Wann (kleinere Zahl = höhere Priorität)"
+
+#. module: backup_manager
+#: sql_constraint:db.list:0
+msgid "Database with the same name? Impossible!"
+msgstr "Datenbank gleichen Namens? Unmöglich!"
+
+#. module: backup_manager
+#: view:db.backup.source:0
+msgid "Get DB List for BackUP"
+msgstr "Hole DB Liste für Sicherung"
+
+#. module: backup_manager
+#: field:db.backup.source,admin_passwd:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_source_admin_passwd
+msgid "Admin password"
+msgstr "Admin-Passwort"
+
+#. module: backup_manager
+#: model:ir.model,name:backup_manager.model_db_list
+msgid "db.list"
+msgstr "db.list"
+
+#. module: backup_manager
+#: model:ir.ui.menu,name:backup_manager.menu_db_backup_source
+msgid "DataBase Servers"
+msgstr "Datenbank-Server"
+
+#. module: backup_manager
+#: field:db.backup.action,sequence:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_action_sequence
+msgid "Priority"
+msgstr "Priorität"
+
+#. module: backup_manager
+#: view:db.backup.source:0
+msgid "External Connector"
+msgstr "Externe Verbindung"
+
+#. module: backup_manager
+#: field:db.backup.source,tz_offset:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_source_tz_offset
+msgid "Timezone offset"
+msgstr "Zeitzonenversatz"
+
+#. module: backup_manager
+#: field:db.backup.source,db_backup_action_ids:0
+#: field:db.dir.path,db_backup_action_ids:0
+#: field:db.list,db_backup_action_ids:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_source_db_backup_action_ids
+#: model:ir.model.fields,field_description:backup_manager.field_db_dir_path_db_backup_action_ids
+#: model:ir.model.fields,field_description:backup_manager.field_db_list_db_backup_action_ids
+msgid "Backup Action"
+msgstr "Sicherungsaktion"
+
+#. module: backup_manager
+#: field:db.backup.source,db_list_ids:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_source_db_list_ids
+msgid "Db Name"
+msgstr "DB-Name"
+
+#. module: backup_manager
+#: view:db.backup.source:0
+msgid "Database Actions"
+msgstr "Datenbankaktionen"
+
+#. module: backup_manager
+#: help:db.backup.action,days_save:0
+msgid "How many days save backup file"
+msgstr "Wie viele Tage soll die Sicherung aufbewahrt bleiben"
+
+#. module: backup_manager
+#: model:ir.ui.menu,name:backup_manager.menu_db_dir_path
+msgid "BackUP Directories"
+msgstr "Sicherungsordner"
+
+#. module: backup_manager
+#: view:db.backup.source:0
+msgid "Localization"
+msgstr "Regionalisierung"
+
+#. module: backup_manager
+#: model:ir.model,name:backup_manager.model_db_backup_action
+msgid "Databse Actions Manager"
+msgstr "Dantebank-Aktionsverwaltung"
+
+#. module: backup_manager
+#: view:db.dir.path:0
+msgid "Test Available"
+msgstr "Verfügbarkeitsprüfung"
+
+#. module: backup_manager
+#: model:ir.actions.act_window,name:backup_manager.action_db_backup_source_form
+msgid "Database Servers"
+msgstr "Datenbank-Server"
+
+#. module: backup_manager
+#: field:db.backup.source,host:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_source_host
+msgid "Host"
+msgstr "Host"
+
+#. module: backup_manager
+#: field:db.backup.action,active_backup:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_action_active_backup
+msgid "Active"
+msgstr "AktivActive"
+
+#. module: backup_manager
+#: view:db.dir.path:0
+msgid "BackUP Directory Path Configure"
+msgstr "Sicherungs-Verzeichnispfad Einstellung"
+
+#. module: backup_manager
+#: view:db.backup.source:0
+msgid "Global Odoo Server Authentication"
+msgstr "Globale Server-Authentizifierung"
+
+#. module: backup_manager
+#: model:ir.model,name:backup_manager.model_db_dir_path
+msgid "db.dir.path"
+msgstr "db.dir.path"
+
+#. module: backup_manager
+#: field:db.backup.action,days_save:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_action_days_save
+msgid "Days Save"
+msgstr "Aufbew.Tage"
+
+#. module: backup_manager
+#: view:db.backup.source:0
+msgid "Dir Path"
+msgstr "Verzeichnispfad"
+
+#. module: backup_manager
+#: model:ir.actions.act_window,help:backup_manager.action_db_dir_path_form
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to start configure local directory for BackUP.\n"
+"              </p><p>\n"
+"                Make BackUP Easy\n"
+"              </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Klicken, um neues lokales Verzeichnis für Datensicherung "
+"einszupflegen.\n"
+"              </p><p>\n"
+"                Mache Sicherung einfach\n"
+"              </p>\n"
+"            "
+
+#. module: backup_manager
+#: selection:db.backup.source,dbs_state:0
+msgid "Need Test"
+msgstr "Test erforderlich"
+
+#. module: backup_manager
+#: selection:db.backup.source,dbs_state:0
+msgid "Error"
+msgstr "FehlerError"
+
+#. module: backup_manager
+#: view:db.backup.source:0
+msgid "DB name"
+msgstr "DB-NameDB name"
+
+#. module: backup_manager
+#: model:ir.ui.menu,name:backup_manager.menu_custom_abackup
+msgid "Backup"
+msgstr "Sichern"
+
+#. module: backup_manager
+#: field:db.backup.action,name:0 field:db.backup.source,name:0
+#: field:db.dir.path,name:0 field:db.list,name:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_action_name
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_source_name
+#: model:ir.model.fields,field_description:backup_manager.field_db_dir_path_name
+#: model:ir.model.fields,field_description:backup_manager.field_db_list_name
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: backup_manager
+#: model:ir.actions.act_window,help:backup_manager.action_db_backup_source_form
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to start configure BackUP.\n"
+"              </p><p>\n"
+"                Make BackUP Easy\n"
+"              </p>\n"
+"            "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Klicken, um Sicherung anzulegen.\n"
+"              </p><p>\n"
+"                Mache Sicherung einfach\n"
+"              </p>\n"
+"            "
+
+#. module: backup_manager
+#: field:db.backup.source,tz:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_source_tz
+msgid "Timezone Odoo Server"
+msgstr "Server-Zeitzone"
+
+#. module: backup_manager
+#: model:ir.actions.act_window,name:backup_manager.action_db_dir_path_form
+msgid "Directory path"
+msgstr "Verzeichnispfad"
+
+#. module: backup_manager
+#: model:ir.model,name:backup_manager.model_db_backup_source
+msgid "db.backup.source"
+msgstr "db.backup.source"
+
+#. module: backup_manager
+#: help:db.backup.source,tz:0
+msgid ""
+"TimeZone where Odoo service started. If not select will used UTC - timezone."
+msgstr ""
+"Zeitzone, in der der Serverdienst läuft. Ohne Angabe wird die UTC-Zeitzone "
+"angenommen."
+
+#. module: backup_manager
+#: field:db.backup.source,port:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_source_port
+msgid "Port"
+msgstr "Port"
+
+#. module: backup_manager
+#: field:db.backup.source,dbs_state:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_source_dbs_state
+msgid "DBs Connect State"
+msgstr "DB-Verbindungsstatus"
+
+#. module: backup_manager
+#: view:db.backup.source:0
+msgid "BackUP Configure"
+msgstr "Sicherungseinstellung"
+
+#. module: backup_manager
+#: selection:db.backup.source,dbs_state:0
+msgid "Ready"
+msgstr "Bereit"
+
+#. module: backup_manager
+#: field:db.backup.action,db_backup_source_id:0
+#: field:db.backup.action,db_dir_path_id:0 field:db.backup.action,db_list_id:0
+#: field:db.list,db_backup_source_id:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_action_db_backup_source_id
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_action_db_dir_path_id
+#: model:ir.model.fields,field_description:backup_manager.field_db_backup_action_db_list_id
+#: model:ir.model.fields,field_description:backup_manager.field_db_list_db_backup_source_id
+msgid "Id"
+msgstr "ID"
+
+#. module: backup_manager
+#: field:db.dir.path,path:0
+#: model:ir.model.fields,field_description:backup_manager.field_db_dir_path_path
+msgid "Path for BackUP"
+msgstr "Pfad für Sicherung"

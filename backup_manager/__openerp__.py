@@ -2,14 +2,14 @@
 
 {
     'name' : 'Automatic BackUp Manager Odoo',
-    'version' : '8.0.0.2',
-    'author' : 'Viktor Vorobjov',
+    'version' : '7.0.0.1',
+    'author' : 'Rudolf Schnapka',
     'category': 'Cron',
     'description' : """
 
     
     """,
-    'website' : 'http://www.prolv.net',
+    'website' : 'http://www.golive.de',
     'depends' : ['base_setup','warning_popup'],
     'data': [
         'abackup_view.xml',

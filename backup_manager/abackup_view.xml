@@ -129,12 +129,7 @@ ${object.date_deadline or ''}<br />
 
 
     <menuitem id="menu_custom_abackup" name="Backup" parent="base.menu_administration" sequence="10" groups="base.group_no_one"/>
-
-    	<menuitem id="menu_db_backup_source"
-              name="DataBase Servers"
-              parent="menu_custom_abackup"
-              action="action_db_backup_source_form"
-		 />
+    <menuitem id="menu_db_backup_source" name="DataBase Servers" parent="menu_custom_abackup" action="action_db_backup_source_form"/>
 
     <!-- Directory Path -->
 
